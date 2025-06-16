@@ -1,0 +1,31 @@
+{
+  "name": "ui-components",
+  "version": "1.0.0",
+  "description": "Framework-agnostic UI components library for Skymfe microfrontends",
+  "type": "module",
+  "main": "dist/ui-components.umd.js",
+  "module": "dist/ui-components.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "ui",
+    "components",
+    "microfrontend",
+    "skymfe"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

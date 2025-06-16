@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Components Demo</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { Button, Typography } from "./src/index.ts";
+
+      const app = document.getElementById("app");
+
+      // Create a heading
+      const heading = new Typography({
+        variant: "h1",
+        text: "UI Components Demo",
+      });
+      app.appendChild(heading.getElement());
+
+      // Create a paragraph
+      const paragraph = new Typography({
+        variant: "body1",
+        text: "This is a demonstration of our framework-agnostic UI components.",
+      });
+      app.appendChild(paragraph.getElement());
+
+      // Create buttons
+      const primaryButton = new Button({
+        variant: "primary",
+        text: "Primary Button",
+        onClick: () => alert("Primary button clicked!"),
+      });
+      app.appendChild(primaryButton.getElement());
+
+      const secondaryButton = new Button({
+        variant: "secondary",
+        text: "Secondary Button",
+        onClick: () => alert("Secondary button clicked!"),
+      });
+      app.appendChild(secondaryButton.getElement());
+
+      const outlinedButton = new Button({
+        variant: "outlined",
+        text: "Outlined Button",
+        onClick: () => alert("Outlined button clicked!"),
+      });
+      app.appendChild(outlinedButton.getElement());
+
+      const textButton = new Button({
+        variant: "text",
+        text: "Text Button",
+        onClick: () => alert("Text button clicked!"),
+      });
+      app.appendChild(textButton.getElement());
+
+      const disabledButton = new Button({
+        variant: "primary",
+        text: "Disabled Button",
+        disabled: true,
+      });
+      app.appendChild(disabledButton.getElement());
+    </script>
+  </body>
+</html>
