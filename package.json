@@ -1,18 +1,26 @@
 {
-  "name": "ui-components",
-  "version": "1.0.0",
+  "name": "@skymfe/ui-components",
+  "version": "0.0.0",
   "description": "Framework-agnostic UI components library for Skymfe microfrontends",
   "type": "module",
   "main": "dist/ui-components.umd.js",
-  "module": "dist/ui-components.es.js",
+  "module": "dist/ui-components.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/ui-components.js",
+      "require": "./dist/ui-components.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "yarn build"
   },
   "keywords": [
     "ui",
@@ -25,7 +33,11 @@
   "devDependencies": {
     "@types/node": "^20.11.24",
     "typescript": "^5.3.3",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "vite-plugin-dts": "^4.5.4"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "publishConfig": {
+    "access": "public"
+  }
 }
