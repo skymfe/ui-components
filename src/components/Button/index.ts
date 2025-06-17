@@ -7,29 +7,33 @@ export type ButtonSize = "small" | "medium" | "large";
 export interface ButtonProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
-  text: string;
   disabled?: boolean;
-  onClick?: (event: MouseEvent) => void;
   className?: string;
 }
 
 export class Button extends Component {
   private props: ButtonProps;
 
-  constructor(props: ButtonProps) {
-    super();
+  constructor(props: ButtonProps, element?: HTMLButtonElement) {
+    super(element);
     this.props = {
       variant: "primary",
       size: "medium",
       disabled: false,
       ...props,
     };
+    this.handleClick = this.handleClick.bind(this);
     this.render();
   }
 
+  private handleClick(_event: MouseEvent): void {
+    // do something like send analytics event
+  }
+
   protected render(): void {
-    const button = document.createElement("button");
-    button.textContent = this.props.text;
+    const button =
+      this.element instanceof HTMLButtonElement ? this.element : document.createElement("button");
+
     button.disabled = this.props.disabled || false;
 
     if (this.props.className) {
@@ -42,10 +46,14 @@ export class Button extends Component {
       button.classList.add("button-disabled");
     }
 
-    if (this.props.onClick) {
-      button.addEventListener("click", this.props.onClick);
-    }
+    button.addEventListener("click", this.handleClick);
 
     this.element = button;
+  }
+
+  destroy(): void {
+    if (this.element) {
+      this.element.removeEventListener("click", this.handleClick);
+    }
   }
 }

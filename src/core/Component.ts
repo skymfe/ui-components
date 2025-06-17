@@ -1,8 +1,8 @@
 export abstract class Component {
   protected element: HTMLElement;
 
-  constructor() {
-    this.element = document.createElement("div");
+  constructor(element?: HTMLElement) {
+    this.element = element || document.createElement("div");
   }
 
   public getElement(): HTMLElement {
